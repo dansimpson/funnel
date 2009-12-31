@@ -10,7 +10,6 @@
 
 ##Project Hierarchy
 
-/project
 	/config
 		boot.rb
 		routes.rb
@@ -48,7 +47,7 @@ echo_handler.rb
 
 set up the route in config/routes.rb
 
-	map.default :handler => Funnel::Servers::DummyServer
+	map.connect "/echo" => EchoHandler
 
 ##Dependencies
 - eventmachine http://github.com/eventmachine/eventmachine

@@ -1,6 +1,6 @@
 spec = Gem::Specification.new do |s|
 	s.name = 'funnel'
-	s.version = '0.1.0'
+	s.version = '0.1.1'
 	s.date = '2009-12-30'
 	s.summary = 'A realtime resource-centric application framework'
 	s.email = 'dan.simpson@gmail.com'
@@ -28,6 +28,7 @@ spec = Gem::Specification.new do |s|
     'lib/funnel/routing/router.rb',
     'lib/funnel/server.rb',
     'lib/funnel/servers/dummy_server.rb',
+    'lib/funnel/generators/application.rb',
     'templates/application/config/boot.rb',
     'templates/application/config/config.rb',
     'templates/application/config/routes.rb',
