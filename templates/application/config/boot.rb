@@ -1,5 +1,5 @@
 $:.unshift File.dirname(__FILE__)
-FUNNEL_ROOT = File.expand_path('../',  __FILE__)
+FUNNEL_ROOT = File.expand_path('../../',  __FILE__)
 
 require 'rubygems'
 require 'funnel'
@@ -12,6 +12,7 @@ require 'funnel'
 handlers = Dir.entries(FUNNEL_ROOT + "/handlers").select { |n| not n =~ /^\.+$/ }
 if handlers
   handlers.each do |h|
+    puts h
     require FUNNEL_ROOT + "/handlers/#{h}"
   end
 end

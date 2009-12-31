@@ -9,7 +9,7 @@ module Funnel
       end
 
       def template_dir
-        File.expand_path('../../../templates/application',  __FILE__)
+        File.expand_path('../../../../templates/application',  __FILE__)
       end
     end
   end
