@@ -1,3 +1,3 @@
 Funnel::Routing::Routes.draw do |map|
-  map.default :handler => EchoServer
+  map.default :handler => Funnel::Servers::DummyServer
 end
