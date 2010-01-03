@@ -37,8 +37,11 @@ module Funnel
       # change the handler from this instance, to a new instance
       # of the type defined by the routing map
       def defer_connection
-        puts "got this far"
-        EM.instance_variable_get("@conns")[@signature] = Routes.get_handler(path).send(:new, @signature)
+        
+        conn = Routes.get_handler(path).send(:new, @signature)
+        conn.headers = @headers
+        
+        EM.instance_variable_get("@conns")[@signature] = conn
       end
 
       def valid_route?
