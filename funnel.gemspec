@@ -1,6 +1,6 @@
 spec = Gem::Specification.new do |s|
 	s.name = 'funnel'
-	s.version = '0.1.4'
+	s.version = '0.1.5'
 	s.date = '2009-12-30'
 	s.summary = 'A realtime resource-centric application framework'
 	s.email = 'dan.simpson@gmail.com'
@@ -33,6 +33,12 @@ spec = Gem::Specification.new do |s|
     'templates/application/config/config.rb',
     'templates/application/config/routes.rb',
     'templates/application/script/run',
-    'templates/application/handlers/echo_handler.rb'
+    'templates/application/handlers/echo_handler.rb',
+    'templates/amqp/config/amqp.rb',
+    'templates/amqp/handlers/amqp.rb',
+    'templates/xmpp/config/xmpp.rb',
+    'templates/xmpp/handlers/xmpp.rb',
+    'templates/twitter/config/twitter.rb',
+    'templates/twitter/handlers/twitter.rb'
 	]
 end

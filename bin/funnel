@@ -22,6 +22,18 @@ OptionParser.new do |opts|
     exit
   end
   
+  opts.on( '-w amqp', '--with-amqp', 'Include amqp proxy handler' ) do
+    options[:amqp] = true
+  end
+  
+  opts.on( '-w xmpp', '--with-xmpp', 'Include xmpp proxy handler' ) do
+    options[:xmpp] = true
+  end
+  
+  opts.on( '-w twitter', '--with-twitter', 'Include twitter stream proxy handler' ) do
+    options[:twitter] = true
+  end
+  
   if ARGV.length < 1
     puts opts
     exit
@@ -30,4 +42,4 @@ OptionParser.new do |opts|
 end.parse!
 
 app = Funnel::Generators::Application.new
-app.generate "#{Dir.getwd}/#{ARGV[0]}", options
+app.generate "#{Dir.getwd}/#{ARGV.last}", options
