@@ -1,6 +1,6 @@
 spec = Gem::Specification.new do |s|
 	s.name = 'funnel'
-	s.version = '0.1.5'
+	s.version = '0.1.8'
 	s.date = '2009-12-30'
 	s.summary = 'A realtime resource-centric application framework'
 	s.email = 'dan.simpson@gmail.com'
@@ -14,12 +14,13 @@ spec = Gem::Specification.new do |s|
 	s.authors = ['Dan Simpson']
 	s.add_dependency('eventmachine', '>= 0.12.4')
 
-
 	s.files = [
-		'README.markdown',
-		'funnel.gemspec',
-		'lib/funnel.rb',
-    'lib/funnel/logger.rb',
+	'README.markdown',
+	'funnel.gemspec',
+    'lib/funnel.rb',
+    'lib/funnel/log.rb',
+    'lib/funnel/configuration.rb',
+    'lib/funnel/flash/policy.rb',
     'lib/funnel/web_socket/frame.rb',
     'lib/funnel/web_socket/headers.rb',
     'lib/funnel/web_socket/connection.rb',
@@ -27,18 +28,12 @@ spec = Gem::Specification.new do |s|
     'lib/funnel/routing/routes.rb',
     'lib/funnel/routing/router.rb',
     'lib/funnel/server.rb',
-    'lib/funnel/servers/dummy_server.rb',
     'lib/funnel/generators/application.rb',
     'templates/application/config/boot.rb',
-    'templates/application/config/config.rb',
+    'templates/application/config/settings.yml',
     'templates/application/config/routes.rb',
-    'templates/application/script/run',
-    'templates/application/handlers/echo_handler.rb',
-    'templates/amqp/config/amqp.rb',
-    'templates/amqp/handlers/amqp.rb',
-    'templates/xmpp/config/xmpp.rb',
-    'templates/xmpp/handlers/xmpp.rb',
-    'templates/twitter/config/twitter.rb',
-    'templates/twitter/handlers/twitter.rb'
+    'templates/application/script/server',
+    'templates/application/htdocs/test.html',
+    'templates/application/handlers/debug_handler.rb',
 	]
 end

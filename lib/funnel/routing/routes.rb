@@ -8,33 +8,32 @@ module Funnel
       def self.get_handler path
         @@instance.get_handler(path)
       end
-      
+
       def self.draw
         @@instance = Routes.new unless @@instance
         yield @@instance
       end
-      
-      
+
       def initialize
         @routes = {}
       end
-      
+
       def connect path, opts
         @routes[path] = Route.new(path, opts)
       end
-      
+
       def default opts
         @routes[:default] = Route.new(:default, opts)
       end
-      
+
       def get_default
-        @routes.key?(:default) ? @routes[:default].handler : Funnel::Servers::DummyServer
+        @routes.key?(:default) ? @routes[:default].handler : nil
       end
-      
+
       def get_handler path
-        @routes.key?(path) ? @routes[path].handler : @routes[:default].handler
+        @routes.key?(path) ? @routes[path].handler : get_default
       end
-      
+
     end
   end
 end

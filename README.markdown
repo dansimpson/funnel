@@ -6,22 +6,25 @@
 
 ##Creating a project
 
-	funnel myapp
+	funnel example
+	cd example
+	ruby script/server
+
 
 ##Project Hierarchy
 
 	/config
 		boot.rb
-		routes.rb
-		config.rb
+		routes.rb (define your handler routes)
+		settings.yml (host, port, accepted sources, etc)
 	/handlers -> your real time resource handlers
-		time.rb 
-		game.rb
-		xmpp.rb
-		amqp.rb
+		game_handler.rb
+		chat_handler.rb
 	/script
 		server
-	
+	/htdocs
+		test.html -> a simple page to test that your server is running
+
 
 ## your first "handler"
 
@@ -52,5 +55,7 @@ set up the route in config/routes.rb
 ##Dependencies
 - eventmachine http://github.com/eventmachine/eventmachine
 
-
-# tired... more info coming soon
+##Coming soon
+- Plugins for various real time things (amqp, xmpp, twitter, etc)
+- Client side libraries to enable cross browser development
+- Client side plugins

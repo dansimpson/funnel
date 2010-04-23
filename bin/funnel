@@ -12,7 +12,7 @@ OptionParser.new do |opts|
   opts.banner = "Usage: funnel [options] application_name"
 
   options[:verbose] = false
-  
+
   opts.on( '-v', '--verbose', 'Output more information' ) do
     options[:verbose] = true
   end
@@ -21,24 +21,12 @@ OptionParser.new do |opts|
     puts opts
     exit
   end
-  
-  opts.on( '-w amqp', '--with-amqp', 'Include amqp proxy handler' ) do
-    options[:amqp] = true
-  end
-  
-  opts.on( '-w xmpp', '--with-xmpp', 'Include xmpp proxy handler' ) do
-    options[:xmpp] = true
-  end
-  
-  opts.on( '-w twitter', '--with-twitter', 'Include twitter stream proxy handler' ) do
-    options[:twitter] = true
-  end
-  
+
   if ARGV.length < 1
     puts opts
     exit
   end
-  
+
 end.parse!
 
 app = Funnel::Generators::Application.new
