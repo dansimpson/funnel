@@ -6,7 +6,12 @@ module Funnel
       # parse headers, validate headers, accept
       # connection, and change the default handler
       def receive_data data
-  
+        if Log.is_debug?
+          Log.debug("----------- FRAME -------------")
+          Log.debug(data)
+          Log.debug("-------------------------------")
+        end
+
         if is_flash_policy_request?(data)
           send_data Funnel::Flash::Policy.response
           close_connection and return

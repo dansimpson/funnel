@@ -7,10 +7,10 @@ require "funnel"
 Funnel::Configuration.load("config/settings.yml")
 
 #load handlers defined by user
-handlers = Dir["handlers/**/*"].select { |n| n =~ /^.*\.rb$/ }
+handlers = Dir.entries(FUNNEL_ROOT + "/handlers").select { |n| not n =~ /^\.+$/ }
 if handlers
   handlers.each do |h|
-    require FUNNEL_ROOT + "/#{h}"
+    require FUNNEL_ROOT + "/handlers/#{h}"
   end
 end
 

@@ -38,6 +38,10 @@ module Funnel
     def self.shutthefuckup!
       @@threshhold = 4
     end
+    
+    def self.is_debug?
+        @@threshhold == 1
+    end
 
     private
 

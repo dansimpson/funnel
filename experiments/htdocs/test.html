@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+	<title>Funnel Test</title>
+</head>
+<body>
+
+
+<h1>Funnel Test</h1>
+<div id="info">Connecting....</div>
+
+<script>
+
+	var webSocket = new WebSocket("ws://localhost:4000/");
+
+	webSocket.onopen = function(event){
+		document.getElementById("info").innerHTML += "<br/>Connection Open";
+	};
+
+	webSocket.onmessage = function(event){
+		document.getElementById("info").innerHTML += "<br/>" + event.data;
+	};
+
+	webSocket.onclose = function(event){
+		document.getElementById("info").innerHTML += "<br/>Connection Closed";
+	};
+
+</script>
+
+<a href="#" onclick="webSocket.send("test")">Send Test Message</a>
+
+</body>
+</html>
